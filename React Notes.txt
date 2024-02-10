@@ -1,0 +1,8 @@
+JS library for building fast and interactive UI and single page applications.
+
+Declarative View --> It dynamically loads particular parts of the page instead of loading them whole. / efficiently update and render just the right components when your data changes.
+
+React is the view layer of an MVC application.
+
+It is a component based library, and allows to build encapsulated components that manages their own state, then compose them to make complex UIs. 
+
