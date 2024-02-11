@@ -6,3 +6,65 @@ React is the view layer of an MVC application.
 
 It is a component based library, and allows to build encapsulated components that manages their own state, then compose them to make complex UIs. 
 
+Hot Reloading--> as we change anything, the modification is directly and instantly reflected on the run time.
+
+*************************************************************************************************
+WHY REACT???? REAL VS VIRTUAL DOM
+
+--> Real DOM:
+1- It updates slow. 
+2- Can directly update HTML.
+3- Creates a new DOM if element updates.
+4- DOM manipulation is very expensive.
+5- Memory wastage.
+
+--> Virtual DOM:
+1- It updates faster.
+2- Can't directly update HTML.
+3- Updates the JSX if element updates.
+4- DOM manipulation is very easy.
+5- No memory wastage.
+
+React compares the state with the actual DOM and changes the changed states only in the virtual DOM. This is why React is called as React, as it reacts to the state changes.
+
+*************************************************************************************************
+--node package manager (npm)--> lets you install the packages.
+--node package execute (npx)--> when we want to execute the packages, and not execute them.
+--Development Server--> npm start prepares a dev server of react.
+--node modules--> packages and all dependencies
+--public--> main folder
+--package.json--> dependencies created by react app, and the further dependencies will also be stored here. 
+--.gitignore--> include packages or files that you do not want to push on github. 
+
+GETTING STARTED WITH REACT
+node --version
+npm --version
+npx --v
+npx create-react-app react-app-name
+cd your-react-folder
+npm start
+
+*************************************************************************************************
+--> What is JSX??
+
+- JSX stands for JavaScript XML.
+- JSX allows us to write HTML in React.
+- JSX makes it easier to write and add HTML in React.
+- JSX will throw an error if the HTML is not correct, or if the HTML misses a parent element.
+- Alternatively, you can use a "fragment" to wrap multiple lines. This will prevent unnecessarily adding extra nodes to the DOM.
+- React supports if statements, but not inside JSX.
+- To be able to use conditional statements in JSX, you should put the if statements outside of the JSX, or you could use a ternary expression instead.
+
+*************************************************************************************************
+--> How To Use BootStrap in React?
+-npm install BootStrap
+-import 'bootstrap/dist/css/bootstrap.css'; (add this in /src/index.js)
+
+then to add the bootstrap elements in react use html to jsx convertor such as: https://transform.tools/html-to-jsx
+
+*************************************************************************************************
+Props--> Can not be changed, as all the components in react are pure functions.
+Pure Function--> If the input of the function is unchanged, then its output will always remain same.
+
+For loops doesn't work in React, hence we use forEach() or map() to iterate over the props.
+ 
