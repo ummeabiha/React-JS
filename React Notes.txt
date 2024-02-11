@@ -28,14 +28,6 @@ WHY REACT???? REAL VS VIRTUAL DOM
 React compares the state with the actual DOM and changes the changed states only in the virtual DOM. This is why React is called as React, as it reacts to the state changes.
 
 *************************************************************************************************
---node package manager (npm)--> lets you install the packages.
---node package execute (npx)--> when we want to execute the packages, and not execute them.
---Development Server--> npm start prepares a dev server of react.
---node modules--> packages and all dependencies
---public--> main folder
---package.json--> dependencies created by react app, and the further dependencies will also be stored here. 
---.gitignore--> include packages or files that you do not want to push on github. 
-
 GETTING STARTED WITH REACT
 node --version
 npm --version
@@ -43,6 +35,44 @@ npx --v
 npx create-react-app react-app-name
 cd your-react-folder
 npm start
+
+GETTING STARTED WITH REACT USING VITE 
+npm create vit@latest or create-vite@4.4.1
+cd your-react-folder
+npm run dev
+
+*************************************************************************************************
+--node package manager (npm)--> lets you install the packages.
+--node package execute (npx)--> when we want to execute the packages, and not execute them.
+--Development Server--> npm start prepares a dev server of react.
+
+PROJECT STRUCTURE
+--node modules--> packages and all dependencies.
+
+--public--> main folder/static files that do not change.
+
+--src--> actual source code
+src will contain three folders i.e. components, styles and assets.
+
+--package.json--> dependencies created by react app, and the further dependencies will also be stored here. 
+it contains important information about the project. metadata of the project.
+
+--package-lock.json--> it will hold the current values of the project for e.g. we are have installed multiple versions for a particular dependency, so it will hold the current vesion we are using.
+
+--.gitignore--> include packages or files that you do not want to push on github. 
+
+*************************************************************************************************
+--> Class Components:
+- Stateful: Can manage states.
+- Lifecycle: Access to lifecycle methods.
+- Verbose: More boilerplate code.
+- Not prefered anymore.
+
+--> Functional Components:
+- Stateless: Initially stateless.
+- Can use Hooks for state and effects.
+- Simpler and more concise.
+- More popular.
 
 *************************************************************************************************
 --> What is JSX??
