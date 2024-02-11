@@ -68,3 +68,131 @@ Pure Function--> If the input of the function is unchanged, then its output will
 
 For loops doesn't work in React, hence we use forEach() or map() to iterate over the props.
  
+
+*************************************************************************************************
+HOOKS IN REACT JS:
+- Hooks allow function components to have access to state and other React features. Because of this, class components are generally no longer needed.
+- Hooks allow us to "hook" into React features such as state and lifecycle methods.
+
+Hook Rules
+There are 3 rules for hooks:
+1- Hooks can only be called inside React function components.
+2- Hooks can only be called at the top level of a component.
+3- Hooks cannot be conditional
+
+*************************************************************************************************
+useState
+We initialize our state by calling useState in our function component.
+useState accepts an initial state and returns two values:
+1- The current state.
+2- A function that updates the state.
+
+import { useState } from "react";
+function FavoriteColor() {
+  const [color, setColor] = useState("");
+}
+The first value, color, is our current state.
+The second value, setColor, is the function that is used to update our state.
+
+
+==> Objects in State
+Create a single Hook that holds an object:
+
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+function Car() {
+  const [car, setCar] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: "1964",
+    color: "red"
+  });
+  return (
+    <>
+      <h1>My {car.brand}</h1>
+      <p>
+        It is a {car.color} {car.model} from {car.year}.
+      </p> </>)}
+Since we are now tracking a single object, we need to reference that object and then the property of that object when rendering the component. (Ex: car.brand)
+
+
+==> Updating Objects and Arrays in State
+When state is updated, the entire state gets overwritten.
+What if we only want to update the color of our car?
+If we only called setCar({color: "blue"}), this would remove the brand, model, and year from our state.
+We can use the JavaScript spread operator to help us.
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+
+function Car() {
+  const [car, setCar] = useState({
+    brand: "Ford",
+    model: "Mustang",
+    year: "1964",
+    color: "red"
+  });
+
+  const updateColor = () => {
+    setCar(previousState => {
+      return { ...previousState, color: "blue" }
+    });
+  }
+}
+
+*************************************************************************************************
+useEffect
+- The useEffect Hook allows you to perform side effects in your components.
+- Some examples of side effects are: fetching data, directly updating the DOM, and timers.
+- useEffect accepts two arguments. The second argument is optional.
+- useEffect(<function>, <dependency>)
+- useEffect runs on every render. That means that when the count changes, a render happens, which then triggers another effect.
+- This is not what we want. There are several ways to control when side effects run.
+- We should always include the second parameter which accepts an array. We can optionally pass dependencies to useEffect in this array.
+
+1. No dependency passed:
+useEffect(() => {
+  //Runs on every render
+});
+
+Only run the effect on the initial render
+useEffect(() => {
+setTimeout(() => {
+    setCount((count) => count + 1);
+}, 1000);
+}, []); // <- add empty brackets here
+
+2. An empty array:
+useEffect(() => {
+  //Runs only on the first render
+}, []);
+
+3. Props or state values:
+useEffect(() => {
+  //Runs on the first render
+  //And any time any dependency value changes
+}, [prop, state]);
+
+Here is an example of a useEffect Hook that is dependent on a variable. If the count variable updates, the effect will run again:
+const [calculation, setCalculation] = useState(0);
+useEffect(() => {
+setCalculation(() => count * 2);
+}, [count]); // <- add the count variable here
+
+
+Effect Cleanup
+- Some effects require cleanup to reduce memory leaks.
+- Timeouts, subscriptions, event listeners, and other effects that are no longer needed should be disposed.
+- We do this by including a return function at the end of the useEffect Hook.
+
+const [count, setCount] = useState(0);
+useEffect(() => {
+let timer = setTimeout(() => {
+setCount((count) => count + 1);
+}, 1000);
+
+return () => clearTimeout(timer)
+}, []);
+
+
+*************************************************************************************************
+useContext
